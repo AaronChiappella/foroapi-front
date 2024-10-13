@@ -1,0 +1,37 @@
+/* navbar.component.css */
+nav {
+  border-right: solid 1px gray;
+
+}
+
+nav ul {
+  list-style: none; /* Eliminar los puntos de la lista */
+  padding: 0; /* Eliminar padding */
+}
+
+nav ul li {
+  margin: 5px 0; /* Espaciado entre los elementos de la lista */
+}
+
+nav ul li a {
+  text-decoration: none; /* Sin subrayado */
+  display: flex;
+  justify-content: center;
+}
+
+.example-action-buttons {
+  padding-bottom: 0px;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-mdc-form-field + .mat-mdc-form-field {
+  margin-left: 8px;
+}
+
+.itemlist{
+  border-left: solid 1px gray;
+}

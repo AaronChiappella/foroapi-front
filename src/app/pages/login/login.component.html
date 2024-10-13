@@ -1,0 +1,101 @@
+<section class="content">
+  <mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+      <div mat-card class="example-header"></div>
+     
+ 
+
+    </mat-card-header>
+  @if (isLoginView == true) {
+    <p class="lead fw-normal mb-0 me-3" style="color: white;">Sign in with</p> <!-- Cambiar a blanco -->
+    <div class="social-buttons"> <!-- Asegúrate de usar esta clase -->
+      
+      <button type="button" class="btn btn-floating mx-1">
+        <i class="fab fa-facebook-f"></i>
+      </button>
+      <button type="button" class="btn btn-floating mx-1">
+        <i class="fab fa-twitter"></i>
+      </button>
+      <button type="button" class="btn btn-floating mx-1">
+        <i class="fab fa-linkedin-in"></i>
+      </button>
+    </div>
+
+    <div class="divider d-flex align-items-center my-4">
+      <p  class="lead fw-normal mb-0 me-3" style="color: white;">Or</p>
+    </div>
+
+    <mat-card-content class="card-content">
+      <mat-form-field appearance="fill"> <!-- Puedes agregar el atributo "appearance" para mejorar el diseño -->
+        <mat-label>Email</mat-label>
+        <input name="email" [(ngModel)]="userLogin.email" type="email" matInput>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input name="password" [(ngModel)]="userLogin.password" matInput>
+      </mat-form-field>
+      <mat-checkbox class="example-margin">Remember Me</mat-checkbox>
+    </mat-card-content>
+    
+    <mat-card-actions>
+      <button mat-button (click)="onLogin()" >LOGIN</button>
+    </mat-card-actions>
+     
+    <p style="color: white;">Don't have an account? <a class="register-hyper"  (click)="isLoginView=false">Register</a></p> <!-- Cambiar a blanco -->
+
+  } @else {<p class="lead fw-normal mb-0 me-3" style="color: white;">Sign up with</p> <!-- Cambiar a blanco -->
+  <div class="social-buttons"> <!-- Asegúrate de usar esta clase -->
+    
+    <button type="button" class="btn btn-floating mx-1">
+      <i class="fab fa-facebook-f"></i>
+    </button>
+    <button type="button" class="btn btn-floating mx-1">
+      <i class="fab fa-twitter"></i>
+    </button>
+    <button type="button" class="btn btn-floating mx-1">
+      <i class="fab fa-linkedin-in"></i>
+    </button>
+  </div>
+
+  <div class="divider d-flex align-items-center my-4">
+    <p  class="lead fw-normal mb-0 me-3" style="color: white;">Or</p>
+  </div>
+
+  <mat-card-content class="card-content">
+    <mat-form-field appearance="fill"> <!-- Puedes agregar el atributo "appearance" para mejorar el diseño -->
+      <mat-label>Email</mat-label>
+      <input name="email" [(ngModel)]="userRegisterObj.email" type="email" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input name="password" [(ngModel)]="userRegisterObj.password" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Repeat Password</mat-label>
+      <input name="repeatedPassword"  matInput>
+    </mat-form-field>
+    <mat-checkbox class="example-margin">Remember Me</mat-checkbox>
+  </mat-card-content>
+  
+  <mat-card-actions>
+    <button mat-button (click)="onRegister()">REGISTER</button>
+    
+  </mat-card-actions>
+  <p style="color: white;">Already have an account? <a class="register-hyper"  (click)="isLoginView=true">Log in</a></p> <!-- Cambiar a blanco -->
+  }
+  </mat-card>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

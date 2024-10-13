@@ -1,0 +1,29 @@
+/* layout.component.css */
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .layout-container {
+    height: 100vh; /* Ocupar toda la altura de la ventana */
+    display: flex;  /* Usar flexbox para la distribución */
+  }
+  
+  .sidenav {
+    width: 15%; /* Ocupa el 20% de la pantalla */
+    display: flex;
+    flex-direction: column; /* Alinear verticalmente los componentes dentro */
+  }
+  
+  .content {
+    flex: 1; /* Ocupar el espacio restante (80%) */
+    padding: 20px; /* Espaciado interno */
+  }
+  
+  .spacer {
+    flex: 1; /* Esto empuja los botones a la derecha */
+  }
+
+  .ppal-items{
+    border-bottom: solid 1px gray;
+  }

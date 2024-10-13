@@ -1,0 +1,18 @@
+<mat-toolbar class="ppal-items" color="primary">
+  <span>ForoAPI</span>
+
+  <span class="spacer"></span> <!-- Esto empuja los elementos a la derecha -->
+  <button mat-button (click)="navigateToLogin()">Login</button>
+  
+</mat-toolbar>
+
+<mat-drawer-container class="layout-container">
+  <mat-drawer #drawer class="sidenav" mode="side" opened>
+    <app-navbar></app-navbar> <!-- Tu navbar aquí -->
+
+  </mat-drawer>
+
+  <div class="content">
+    <router-outlet></router-outlet> <!-- Aquí se cargará el contenido de las rutas -->
+  </div>
+</mat-drawer-container>

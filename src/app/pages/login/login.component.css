@@ -1,0 +1,76 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+.content {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.example-card {
+  width: auto;
+  display: flex;
+  flex-direction: column; /* Para alinear verticalmente los hijos */
+  align-items: center; /* Centrar horizontalmente el contenido */
+  padding: 10px;
+  width: 30%;
+}
+
+.example-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrar verticalmente */
+    align-items: stretch; /* Cambiado de center a stretch para que ocupe el ancho completo */
+    width: 100%;
+}
+
+.mat-form-field {
+    width: 100%; /* Ensanchar los inputs */
+    max-width: 500px; /* Aumentar el ancho máximo de los inputs */
+    margin-bottom: 16px; /* Espaciado inferior entre los campos de entrada */
+}
+
+.register-hyper {
+  text-decoration: underline; /* Aplicar el subrayado */
+  text-underline-position: below; /* Posición del subrayado (esto puede no ser compatible en todos los navegadores) */
+  cursor: pointer; /* Cambiar el cursor a puntero para indicar que es un enlace */
+  color: #1976d2; /* Color del texto del enlace */
+}
+
+.btn-floating {
+  width: 40px; /* Ajustar el tamaño de los botones de iconos */
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* Hacer los botones circulares */
+  background-color: #3c3c3c; /* Color de fondo de los botones */
+  color: white; /* Color del icono */
+  border: none; /* Sin borde */
+  transition: background-color 0.3s; /* Transición para el hover */
+  margin: 0 8px; /* Agregar margen para la separación entre iconos */
+}
+
+.btn-floating:hover {
+  background-color: #848484; /* Color de fondo en hover */
+}
+
+.fab {
+  font-size: 18px; /* Ajustar el tamaño de los iconos */
+  color: white; /* Color de los iconos */
+}
+
+/* Asegurar que los iconos se alineen en fila */
+.social-buttons {
+  display: flex; /* Usar flexbox para alinear en fila */
+  justify-content: center; /* Centrar horizontalmente los iconos */
+  align-items: center; /* Centrar verticalmente los iconos */
+  margin-bottom: 16px; /* Espaciado inferior */
+}

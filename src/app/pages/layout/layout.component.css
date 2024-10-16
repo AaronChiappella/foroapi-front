@@ -10,7 +10,7 @@ html, body {
   }
   
   .sidenav {
-    width: 15%; /* Ocupa el 20% de la pantalla */
+    width: 20%; /* Ocupa el 20% de la pantalla */
     display: flex;
     flex-direction: column; /* Alinear verticalmente los componentes dentro */
   }

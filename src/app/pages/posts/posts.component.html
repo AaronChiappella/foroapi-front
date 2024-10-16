@@ -1,0 +1,12 @@
+<div class="posts-container">
+@for(post of posts; track post.id){
+    <app-post 
+    [title]="post.title"
+    [longText]="post.longText"
+    [authorName]="post.authorName"
+    [aliasName]="post.aliasName"
+    [urlProfileImage]="post.urlProfileImage"
+    [topics]="post.topics">
+    </app-post>
+}
+</div>

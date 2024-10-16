@@ -1,30 +1,15 @@
 import { Component, inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MaterialModule } from '../../material.module';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatCardModule } from '@angular/material/card';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
-    FormsModule,
-    MaterialModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatCardModule,
-    MatDividerModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    HttpClientModule // Asegúrate de incluir esto
+   MaterialModule,
+   CommonModule
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'] // Cambia 'styleUrl' por 'styleUrls'

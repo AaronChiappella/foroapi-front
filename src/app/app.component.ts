@@ -12,7 +12,7 @@ import { MaterialModule } from './material.module';
     LayoutComponent,
     PostComponent,
     RouterModule,
-    MaterialModule
+    MaterialModule,
     
 ], 
   templateUrl: './app.component.html',

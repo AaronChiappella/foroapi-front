@@ -2,17 +2,17 @@ import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { MaterialModule } from '../../material.module';
 import { CommonModule } from '@angular/common';
-import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
-   MaterialModule,
-   CommonModule
+    MaterialModule,
+    CommonModule,
   ],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'] // Cambia 'styleUrl' por 'styleUrls'
+  styleUrls: ['./login.component.css'], // Cambia 'styleUrl' por 'styleUrls'
 })
 export class LoginComponent {
   isLoginView: boolean = true;
@@ -24,22 +24,15 @@ export class LoginComponent {
   };
 
   userLogin: any = {
-    email: '', // Cambia 'mail' por 'email' para que coincida con loginData
+    email: '',
     password: ''
   };
 
-  router = inject(Router);
-  http = inject(HttpClient);
+  private router = inject(Router);
+  private userService = inject(UserService); // Usa el UserService
 
   onRegister() {
-    const registrationData = {
-      userName: this.userRegisterObj.userName,
-      email: this.userRegisterObj.email,
-      password: this.userRegisterObj.password
-    };
-   
-    // Realizar la petición POST a la API para crear el usuario
-    this.http.post<any>('https://localhost:7289/api/Users/Register', registrationData).subscribe(
+    this.userService.register(this.userRegisterObj).subscribe(
       (response) => {
         if (response.isSuccess) {
           alert("Registration successful!");
@@ -49,35 +42,23 @@ export class LoginComponent {
         }
       },
       (error) => {
-        // Manejar el error de la petición
         alert("Error during registration. Please try again.");
       }
     );
   }
 
-
   onLogin() {
-    const loginData = {
-      email: this.userLogin.email,
-      password: this.userLogin.password
-    };
-
-    // Realizar la petición POST a la API
-    this.http.post<any>('https://localhost:7289/api/Users/Login', loginData).subscribe(
+    this.userService.login(this.userLogin.email, this.userLogin.password).subscribe(
       (response) => {
         if (response.isSuccess) {
-          // Aquí puedes almacenar el token o los datos que devuelva la API
-          // localStorage.setItem('token', response.data.token); // Si tu API devuelve un token JWT
-          
-          // Redirigir al dashboard si el login es exitoso
-          this.router.navigateByUrl('dashboard');
+          // Almacenar el token o datos que devuelva la API
+          // localStorage.setItem('token', response.data.token);
+          this.router.navigateByUrl('dashboard'); // Redirigir al dashboard si el login es exitoso
         } else {
-          // Mostrar un mensaje si el login falla
           alert(response.message);
         }
       },
       (error) => {
-        // Manejar el error de la petición
         alert("Email o contraseña incorrectos");
       }
     );

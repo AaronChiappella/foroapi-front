@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { MaterialModule } from '../../material.module';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -37,7 +37,7 @@ export class LoginComponent {
       email: this.userRegisterObj.email,
       password: this.userRegisterObj.password
     };
-
+   
     // Realizar la petición POST a la API para crear el usuario
     this.http.post<any>('https://localhost:7289/api/Users/Register', registrationData).subscribe(
       (response) => {

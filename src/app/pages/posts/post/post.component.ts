@@ -12,10 +12,11 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent {
-  @Input() title!: string;
-  @Input() longText!: string;
-  @Input() authorName!: string;
+  @Input() title!: string; // Use '!' to assert that it will be assigned
+  @Input() content!: string;
+  @Input() authorEmail!: string;
   @Input() aliasName!: string;
   @Input() urlProfileImage!: string;
-  @Input() topics!: { id: number, name: string }[];
+  @Input() topics!: Array<{ id: number; name: string }>;
+
 }

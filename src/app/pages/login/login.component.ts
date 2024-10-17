@@ -53,7 +53,7 @@ export class LoginComponent {
         if (response.isSuccess) {
           // Almacenar el token o datos que devuelva la API
           // localStorage.setItem('token', response.data.token);
-          this.router.navigateByUrl('dashboard'); // Redirigir al dashboard si el login es exitoso
+          this.router.navigateByUrl('layout'); // Redirigir al dashboard si el login es exitoso
         } else {
           alert(response.message);
         }

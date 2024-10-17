@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { PostComponent } from "./pages/posts/post/post.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { UserService } from './services/user.service';
+import { PostService } from './services/post.service';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +14,8 @@ import { MaterialModule } from './material.module';
     LayoutComponent,
     PostComponent,
     RouterModule,
-    MaterialModule,
-    
-], 
+    MaterialModule,   
+  ], 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

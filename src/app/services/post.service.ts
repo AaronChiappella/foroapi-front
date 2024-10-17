@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Post } from '../models/post';
-import { Observable } from 'rxjs';
-
+import { Observable, map } from 'rxjs';
+ 
 @Injectable({
   providedIn: 'root' // Ensure the service is available application-wide
 })
@@ -18,10 +18,22 @@ export class PostService {
     return this.http.post<Post>(`${this.apiUrl}/Create`, post); // POST to /Create
   }
 
+  
   // Get all posts
   getPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(`${this.apiUrl}/GetAll`); // GET to /GetAll
+    return this.http.get<any>(`${this.apiUrl}/GetAll`).pipe(
+      map(response => {
+        if (response.isSuccess) {
+          return response.data; // Devuelve el arreglo de posts
+          
+        } else {
+          throw new Error(response.message); // Manejo de error
+
+        }
+      })
+    );
   }
+
 
   // Get a post by its ID
   getPostBy(id: number): Observable<Post> {

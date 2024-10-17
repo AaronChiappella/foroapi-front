@@ -22,22 +22,22 @@ export class UserService {
     return this.http.post<any>(`${this.apiUrl}/Login`, loginData); // POST to /Login
   }
 
-  // Get all posts
+  // Get all user
   getPosts(): Observable<User[]> {
     return this.http.get<User[]>(`${this.apiUrl}/GetAll`); // GET to /GetAll
   }
 
-  // Get a post by its ID
+  // Get a user by its ID
   getPostBy(id: number): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/${id}`); // GET to /{id}
   }
 
-  // Update an existing post
+  // Update an existing user
   updatePost(post: User): Observable<User> {
     return this.http.put<User>(`${this.apiUrl}/Edit`, post); // PUT to /Edit
   }
 
-  // Delete a post by its ID
+  // Delete a user by its ID
   deletePost(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`); // DELETE to /{id}
   }

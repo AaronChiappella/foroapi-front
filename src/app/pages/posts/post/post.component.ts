@@ -15,8 +15,6 @@ export class PostComponent {
   @Input() title!: string; // Use '!' to assert that it will be assigned
   @Input() content!: string;
   @Input() authorEmail!: string;
-  @Input() aliasName!: string;
-  @Input() urlProfileImage!: string;
-  @Input() topics!: Array<{ id: number; name: string }>;
+
 
 }

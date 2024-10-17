@@ -27,3 +27,19 @@ html, body {
   .ppal-items{
     border-bottom: solid 1px gray;
   }
+
+
+
+  .loginButton {
+    border: solid 2px rgb(40, 40, 106);
+    background-color: transparent; /* Color inicial del fondo */
+    color: rgb(40, 40, 106); /* Color del texto */
+    transition: background-color 0.5s ease, color 0.3s ease; /* Transición suave para el color de fondo y el texto */
+  }
+  
+  .loginButton:hover {
+    background-color: rgb(40, 40, 106); /* Color de fondo en hover */
+    color: white; /* Cambiar color del texto en hover */
+  }
+  
+  

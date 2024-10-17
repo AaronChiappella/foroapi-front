@@ -4,8 +4,6 @@ export interface Post {
     title: string; 
     content: string; 
     authorEmail: string;
-    aliasName?: string;
-    urlProfileImage?: string; 
-    topics?: Array<{ id: number; name: string }>; 
+   
 
 }

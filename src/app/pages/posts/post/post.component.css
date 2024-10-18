@@ -14,10 +14,21 @@
   margin-top: 5%;
 }
   
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-    overflow: hidden; /* Evita la barra de desplazamiento */
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+  overflow: hidden; /* Evita la barra de desplazamiento */
 
-  }
+}
+
   
+.my-fab{
+  margin: 2px;
+
+}
+  
+
+.card-actions{
+
+  justify-content: flex-end;
+}

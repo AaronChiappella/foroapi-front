@@ -6,7 +6,10 @@
   <span>ForoAPI</span>
 
   <span class="spacer"></span> <!-- Esto empuja los elementos a la derecha -->
-  <button class="loginButton" mat-button (click)="navigateToLogin()">Login</button>
+  <button mat-stroked-button *ngIf="isLoggedIn()" class="layoutButtons" (click)="navigateToCreatePost()" > + Create </button>
+  <button  mat-flat-button *ngIf="!isLoggedIn()" class="layoutButtons" (click)="navigateToLogin()">Login</button>
+  <button *ngIf="isLoggedIn()" mat-flat-button class="layoutButtons" (click)="logout()">Logout</button>
+
   
 </mat-toolbar>
 

@@ -15,6 +15,7 @@ import { PostService } from './services/post.service';
     PostComponent,
     RouterModule,
     MaterialModule,   
+    
   ], 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

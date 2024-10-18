@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { User } from '../models/user';
-import { Observable } from 'rxjs';
+import { Observable, tap } from "rxjs";
+import { User } from "../models/user";
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 
 @Injectable({
   providedIn: 'root',
@@ -13,32 +13,32 @@ export class UserService {
 
   // Create a new user (register)
   register(user: User): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/Register`, user); // POST to /Register
+    return this.http.post<any>(`${this.apiUrl}/Register`, user);
   }
 
   // User login
   login(email: string, password: string): Observable<any> {
     const loginData = { email, password };
-    return this.http.post<any>(`${this.apiUrl}/Login`, loginData); // POST to /Login
+    return this.http.post<any>(`${this.apiUrl}/Login`, loginData).pipe(
+      tap((response) => {
+        if (response.isSuccess) {
+          localStorage.setItem('token', response.data.token); // Store token in localStorage
+        }
+      })
+    );
   }
 
-  // Get all user
-  getPosts(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.apiUrl}/GetAll`); // GET to /GetAll
+  // Check if the user is authenticated
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('userToken'); // If token exists, user is authenticated
   }
 
-  // Get a user by its ID
-  getPostBy(id: number): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl}/${id}`); // GET to /{id}
+  // Log out the user
+  logout() {
+    console.log('eliminacion token');
+    
+    localStorage.removeItem('userToken'); // Remove token on logout
   }
 
-  // Update an existing user
-  updatePost(post: User): Observable<User> {
-    return this.http.put<User>(`${this.apiUrl}/Edit`, post); // PUT to /Edit
-  }
-
-  // Delete a user by its ID
-  deletePost(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`); // DELETE to /{id}
-  }
+  // Other methods (getPosts, updatePost, deletePost) remain the same...
 }

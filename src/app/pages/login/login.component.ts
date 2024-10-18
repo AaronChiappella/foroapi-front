@@ -1,18 +1,15 @@
-import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { MaterialModule } from '../../material.module';
-import { CommonModule } from '@angular/common';
-import { UserService } from '../../services/user.service';
+import { Router } from "@angular/router";
+import { UserService } from "../../services/user.service";
+import { Component, inject } from "@angular/core";
+import { MaterialModule } from "../../material.module";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [
-    MaterialModule,
-    CommonModule,
-  ],
+  imports: [MaterialModule, CommonModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'], // Cambia 'styleUrl' por 'styleUrls'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   isLoginView: boolean = true;
@@ -29,14 +26,14 @@ export class LoginComponent {
   };
 
   private router = inject(Router);
-  private userService = inject(UserService); // Usa el UserService
+  private userService = inject(UserService);
 
   onRegister() {
     this.userService.register(this.userRegisterObj).subscribe(
       (response) => {
         if (response.isSuccess) {
           alert("Registration successful!");
-          this.isLoginView = true; // Volver a la vista de login
+          this.isLoginView = true;
         } else {
           alert(response.message);
         }
@@ -50,17 +47,37 @@ export class LoginComponent {
   onLogin() {
     this.userService.login(this.userLogin.email, this.userLogin.password).subscribe(
       (response) => {
-        if (response.isSuccess) {
-          // Almacenar el token o datos que devuelva la API
-          // localStorage.setItem('token', response.data.token);
-          this.router.navigateByUrl('layout'); // Redirigir al dashboard si el login es exitoso
+        console.log('Respuesta del servidor:', response);
+        if (response.response.isSuccess) {
+          // Guarda el token en el almacenamiento local
+          localStorage.setItem('userToken', response.token);
+          
+          // Opcional: guarda información del usuario (excepto la contraseña)
+          const userData = {
+            id: response.response.data.id,
+            email: response.response.data.email,
+            activo: response.response.data.activo
+          };
+          localStorage.setItem('userData', JSON.stringify(userData)); // Guarda la info del usuario si es necesario
+  
+          // Redirige a la página de layout
+          this.router.navigate(['layout']);
         } else {
-          alert(response.message);
+          alert(response.response.message); // Muestra el mensaje de error
         }
       },
       (error) => {
-        alert("Email o contraseña incorrectos");
+        console.error('Error al iniciar sesión:', error);
+        alert("Incorrect email or password");
       }
     );
   }
+  
+  
+
+  onLogout() {
+    this.userService.logout();
+    this.router.navigateByUrl(''); // Redirect to login after logout
+  }
 }
+ 

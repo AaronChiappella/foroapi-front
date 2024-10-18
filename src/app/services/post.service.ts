@@ -15,7 +15,7 @@ export class PostService {
 
   // Create a new post
   createPost(post: Post): Observable<Post> {
-    return this.http.post<Post>(`${this.apiUrl}/Create`, post); // POST to /Create
+    return this.http.post<Post>(`${this.apiUrl}/Create`, post); // POST a /Create
   }
 
   

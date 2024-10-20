@@ -1,30 +1,13 @@
-
-
-
-
 <mat-toolbar class="ppal-items" color="primary">
-  <span>ForoAPI</span>
+  <span >ForoAPI</span>
 
   <span class="spacer"></span> <!-- Esto empuja los elementos a la derecha -->
-  <button mat-stroked-button *ngIf="isLoggedIn()" class="layoutButtons" (click)="navigateToCreatePost()" > + Create </button>
-  <button  mat-flat-button *ngIf="!isLoggedIn()" class="layoutButtons" (click)="navigateToLogin()">Login</button>
-  <button *ngIf="isLoggedIn()" mat-flat-button class="layoutButtons" (click)="logout()">Logout</button>
-
-  
+  <button mat-stroked-button *ngIf="isLoggedIn()" class="layoutButtons" (click)="navigateToCreatePost()"> + Create </button>
+  <button mat-flat-button *ngIf="!isLoggedIn()" class="layoutButtons" (click)="navigateToLogin()">Login</button>
+  <app-profile-picture *ngIf="isLoggedIn()"></app-profile-picture>
 </mat-toolbar>
 
-<mat-drawer-container class="layout-container">
-  <mat-drawer #drawer class="sidenav" mode="side" opened>
-    <app-navbar></app-navbar> <!-- Tu navbar aquí -->
-
-  </mat-drawer>
-  
-  <app-posts></app-posts>
-
-
-
-
-  <div class="content">
-    <router-outlet></router-outlet> <!-- Aquí se cargará el contenido de las rutas -->
-  </div>
-</mat-drawer-container>
+<app-main></app-main>
+<div class="content">
+  <router-outlet></router-outlet> 
+</div>

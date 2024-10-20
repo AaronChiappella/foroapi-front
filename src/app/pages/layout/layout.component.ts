@@ -1,25 +1,25 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, ActivatedRoute } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
-
 import { Router } from '@angular/router';
 import { PostsComponent } from '../posts/posts.component';
 import { MaterialModule } from '../../material.module';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
-
+import { ProfilePictureComponent } from "../profile-picture/profile-picture.component";
+import { MainComponent } from "../main/main.component";
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [RouterOutlet, MaterialModule, NavbarComponent, PostsComponent,CommonModule],
+  imports: [MainComponent, RouterOutlet, MaterialModule, ProfilePictureComponent, NavbarComponent, PostsComponent, CommonModule],
   templateUrl: './layout.component.html',
-  styleUrl: './layout.component.css'
+  styleUrls: ['./layout.component.css'] // Cambié styleUrl por styleUrls (en plural) ya que este es el nombre correcto
 })
 export class LayoutComponent {
-  constructor(private router: Router, private userService: UserService) {}
 
-
+  constructor(private router: Router, private userService: UserService){};
+   
   navigateToLogin() {
     this.router.navigate(['/login']);
   }
@@ -32,10 +32,9 @@ export class LayoutComponent {
     return this.userService.isAuthenticated(); // Usa el método que ya tienes
   }
 
-  logout() {
-    this.userService.logout(); // Llama al método de logout
-    this.router.navigate(['/login']);
-  }
 
+  navigateToMain() {
+    this.router.navigate(['/layout/main']); // Navega a la ruta principal o cualquier ruta que definas para la página principal
+  }
 
 }

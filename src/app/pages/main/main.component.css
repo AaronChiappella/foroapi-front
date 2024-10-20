@@ -1,0 +1,16 @@
+.sidenav {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container {
+  height: 100vh; /* Que ocupe toda la altura de la pantalla */
+  display: flex;
+  flex-direction: row;
+}
+
+mat-drawer-content {
+  flex: 1; /* Para que el contenido principal ocupe el espacio restante */
+  padding: 16px; /* Espacio alrededor del contenido */
+}

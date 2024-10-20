@@ -6,7 +6,7 @@ html, body {
   
   .layout-container {
     height: 100vh; /* Ocupar toda la altura de la ventana */
-    display: flex;  /* Usar flexbox para la distribución */
+    display: flex;
   }
   
   .sidenav {
@@ -30,8 +30,5 @@ html, body {
 .layoutButtons{
   margin: 4px;
 }
-
-
-  
-  
+ 
   

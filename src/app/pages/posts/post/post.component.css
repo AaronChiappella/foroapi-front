@@ -1,11 +1,11 @@
 .example-card {
   overflow: hidden; /* Evita la barra de desplazamiento */
-  margin: 2%;
+  margin-left: 20px;
   }
   
   .example-card-footer {
     width: 100%;
-    padding: 16px;
+    margin: 16px;
   }
 
 .aliasName{

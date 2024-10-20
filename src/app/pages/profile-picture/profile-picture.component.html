@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="userProfile">
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="profile-button">
+        <img mat-card-image *ngIf="isLoggedIn()" class="userProfileImage" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      </button>
+    </div>
+  
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="navigateToSettings()">
+        <mat-icon>person</mat-icon>
+        <span>Perfil</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Ajustes</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span >Cerrar sesión</span>
+      </button>
+    </mat-menu>
+  </div>
+  

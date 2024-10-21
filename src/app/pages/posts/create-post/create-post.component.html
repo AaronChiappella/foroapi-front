@@ -1,4 +1,4 @@
-<form class="example-form" (ngSubmit)="submitForm()"> <!-- Add ngSubmit event -->
+<form class="example-form" (ngSubmit)="submitForm()">
   <mat-form-field class="example-full-width">
     <mat-label>Title</mat-label>
     <input matInput [(ngModel)]="post.title" name="title" placeholder="Insert Title">
@@ -8,6 +8,46 @@
     <mat-label>Content</mat-label>
     <textarea matInput [(ngModel)]="post.content" name="content" placeholder="Insert Content"></textarea>
   </mat-form-field>
+
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Images </mat-panel-title>
+        </mat-expansion-panel-header>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <div>
+    <mat-form-field class="example-medium-width">
+      <mat-label>Topic</mat-label>
+      <input matInput [(ngModel)]="topic" name="topic" placeholder="Insert Topic">
+    </mat-form-field>
+
+    <button mat-mini-fab type="button" (click)="addTopic()" aria-label="Add Topic">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <div class="list">
+    <mat-chip-set aria-label="Topics">
+
+      @for(topic of topics; track topic){
+        <mat-chip [removable]="true" (removed)="removeTopic(topic)">
+          {{ topic }}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+
+      }
+      <mat-chip *ngFor="let t of topics" [removable]="true" (removed)="removeTopic(t)">
+        {{ t }}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip>
+    </mat-chip-set>
+  </div>
 
   <div class="example-button-row">
     <button mat-raised-button type="button" (click)="cancel()">Cancel</button>

@@ -38,7 +38,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSidenavModule,
     MatButton,
     MatIconModule,
-    MatTabsModule
+    MatTabsModule,
+    MatListModule
   ],
   exports: [
     MatCardModule,
@@ -62,7 +63,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTabsModule
+    MatTabsModule,
+    MatListModule
+
 
   ]
 })

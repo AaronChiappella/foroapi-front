@@ -7,7 +7,7 @@ import { MaterialModule } from '../../material.module';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { ProfilePictureComponent } from "../profile-picture/profile-picture.component";
-import { MainComponent } from "../main/main.component";
+import { MainComponent } from '../main/main.component';
 
 @Component({
   selector: 'app-layout',

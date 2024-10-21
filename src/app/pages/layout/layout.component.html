@@ -2,7 +2,7 @@
   <span >ForoAPI</span>
 
   <span class="spacer"></span> <!-- Esto empuja los elementos a la derecha -->
-  <button mat-stroked-button *ngIf="isLoggedIn()" class="layoutButtons" (click)="navigateToCreatePost()"> + Create </button>
+  <button mat-stroked-button *ngIf="!isLoggedIn()" class="layoutButtons" (click)="navigateToCreatePost()"> + Create </button>
   <button mat-flat-button *ngIf="!isLoggedIn()" class="layoutButtons" (click)="navigateToLogin()">Login</button>
   <app-profile-picture *ngIf="isLoggedIn()"></app-profile-picture>
 </mat-toolbar>
